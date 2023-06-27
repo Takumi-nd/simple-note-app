@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/background">
+        <file>images/shimmering-gold-stars-moon-watercolor-background.jpg</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>images/bold.png</file>
+        <file>images/italic.png</file>
+        <file>images/underline.png</file>
+    </qresource>
+</RCC>
