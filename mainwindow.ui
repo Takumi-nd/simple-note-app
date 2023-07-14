@@ -89,31 +89,6 @@ QSpinBox {
               <property name="editable">
                <bool>false</bool>
               </property>
-              <item>
-               <property name="text">
-                <string>Red</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Blue</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Black</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Yellow</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>White</string>
-               </property>
-              </item>
              </widget>
             </item>
             <item>
@@ -132,6 +107,7 @@ QSpinBox {
               </property>
               <property name="font">
                <font>
+                <family>Arial</family>
                 <pointsize>10</pointsize>
                </font>
               </property>
@@ -160,6 +136,7 @@ QSpinBox {
               </property>
               <property name="font">
                <font>
+                <family>Arial</family>
                 <pointsize>10</pointsize>
                </font>
               </property>
@@ -475,7 +452,7 @@ QSpinBox {
        <widget class="QTextEdit" name="textEdit">
         <property name="font">
          <font>
-          <family>Tahoma</family>
+          <family>.VnTahoma</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -497,7 +474,7 @@ QSpinBox {
      <x>0</x>
      <y>0</y>
      <width>1015</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

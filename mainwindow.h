@@ -10,6 +10,8 @@
 #include <QStandardPaths>
 #include <QTextCursor>
 #include <QDebug>
+#include <QVector>
+#include <QTextDocument>
 
 namespace Ui {
 class MainWindow;
@@ -42,7 +44,7 @@ private slots:
 
     void on_textEdit_cursorPositionChanged();
 
-    void on_colorBox_currentIndexChanged(int index);
+    void on_colorBox_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -51,6 +53,8 @@ private:
     QTextCursor cursor;
     QTextCharFormat charFormat;
     QFont font;
+    QVector<QString> color;
+    QColor setColor;
 };
 
 #endif // MAINWINDOW_H

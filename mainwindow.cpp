@@ -7,14 +7,22 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // init font
+    // init color box
+    color = {"red", "blue", "yellow", "black"};
+    for (int i=0;i<4;i++){
+        ui->colorBox->addItem(color[i]);
+    }
+    ui->colorBox->setCurrentIndex(3);
+
+    // set default font
     font.setFamily("Arial");
     font.setPointSize(10);
-    ui->textEdit->setFont(font);
+    ui->textEdit->document()->setDefaultFont(font);
     cursor = ui->textEdit->textCursor();
     ui->fontComboBox->setCurrentFont(font.family());
     ui->sizeBox->setValue(font.pointSize());
 
+    // check if text is change
     isTextChanged = false;
 }
 
@@ -53,6 +61,7 @@ void MainWindow::on_actionOpen_triggered()
     if(!filePath.isEmpty()){
         if(file.open(QFile::ReadOnly|QFile::Text)){
             QTextStream in(&file);
+            in.setCodec("UTF-8");
             QString fileContent = in.readAll();
             QString fileName = getFileName(filePath);
             ui->textEdit->setText(fileContent);
@@ -134,14 +143,15 @@ void MainWindow::on_fontComboBox_currentFontChanged(const QFont &f)
 void MainWindow::on_sizeBox_valueChanged(int arg1)
 {
     // get info of current font
-    charFormat = cursor.charFormat();
-    font = charFormat.font();
+//    charFormat = cursor.charFormat();
+//    font = charFormat.font();
 
     // update font
-    font.setPointSize(arg1);
-    charFormat.setFont(font);
-    cursor.setCharFormat(charFormat);
-    ui->textEdit->setTextCursor(cursor);
+//    font.setPointSize(arg1);
+//    charFormat.setFont(font);
+//    cursor.setCharFormat(charFormat);
+//    ui->textEdit->setTextCursor(cursor);
+    ui->textEdit->setFontPointSize(arg1);
 }
 
 // display size of current font
@@ -153,7 +163,16 @@ void MainWindow::on_textEdit_cursorPositionChanged()
     ui->sizeBox->setValue(font.pointSize());
 }
 
-void MainWindow::on_colorBox_currentIndexChanged(int index)
+void MainWindow::on_colorBox_currentIndexChanged(const QString &arg1)
 {
-
+    if (arg1 == "red"){
+        setColor.setRgb(255,0,0);
+    } else if (arg1 == "blue") {
+        setColor.setRgb(0,0,255);
+    } else if (arg1 == "yellow") {
+        setColor.setRgb(255,255,0);
+    } else {
+        setColor.setRgb(0,0,0);
+    }
+    ui->textEdit->setTextColor(setColor);
 }
