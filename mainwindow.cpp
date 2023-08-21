@@ -38,7 +38,7 @@ QString getFileName(QString &filePath){
 
 void MainWindow::on_actionNew_triggered()
 {
-    if(!currentFile.isEmpty()){
+    if(!currentFile.isEmpty() && isTextChanged){
         //neu file da ton tai thi hien diaglog hoi viec save
     } else {
         currentFile.clear();
@@ -175,4 +175,15 @@ void MainWindow::on_colorBox_currentIndexChanged(const QString &arg1)
         setColor.setRgb(0,0,0);
     }
     ui->textEdit->setTextColor(setColor);
+}
+
+void MainWindow::on_boldBut_clicked()
+{
+    btn_chk++;
+    if (btn_chk == 1){
+        ui->textEdit->setFontWeight(75);
+    } else {
+        ui->textEdit->setFontWeight(50);
+        btn_chk = 0;
+    }
 }

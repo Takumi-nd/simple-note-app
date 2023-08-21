@@ -46,6 +46,8 @@ private slots:
 
     void on_colorBox_currentIndexChanged(const QString &arg1);
 
+    void on_boldBut_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString currentFile = "";
@@ -55,6 +57,7 @@ private:
     QFont font;
     QVector<QString> color;
     QColor setColor;
+    int btn_chk = 0;
 };
 
 #endif // MAINWINDOW_H
